@@ -1,17 +1,16 @@
-import { DataTypes } from "sequelize";
+import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 
-const User = db.define("Notes", {
-  Judul: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  Isi: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
+// Membuat tabel "Note"
+const Notes = db.define(
+  "Notes", // Nama Tabel
+  {
+    Judul: Sequelize.STRING,
+    Isi: Sequelize.STRING,
+    
+  }
+);
+
+db.sync().then(() => console.log("Database synced"));
 
 export default Notes;
-
