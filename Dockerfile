@@ -1,18 +1,18 @@
 # Use official Node.js LTS image
 FROM node:18
 
-# Set working directory inside container
+# Create app directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Install app dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy rest of the app
+# Bundle app source
 COPY . .
 
-# Expose the port your app runs on
+# Expose the app port
 EXPOSE 8080
 
-# Start the app
+# Start the application
 CMD ["npm", "start"]
