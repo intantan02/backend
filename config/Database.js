@@ -1,8 +1,9 @@
 import { Sequelize } from "sequelize";
-import dotenv from "dotenv";
-dotenv.config();
 
-const db = new Sequelize(process.env.DATABASE_URL, {
+// Supabase PostgreSQL connection string
+const DB_URL = "postgresql://postgres.lsvuwexizyosjsjevhxs:12345678@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres";
+
+const db = new Sequelize(DB_URL, {
   dialect: "postgres",
   dialectOptions: {
     ssl: {
