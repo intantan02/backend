@@ -4,7 +4,7 @@ import UserRoute from "./routes/authRoute.js";
 import db from "./config/Database.js";
 
 const app = express();
-const port = process.env.PORT | 8080;
+const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
