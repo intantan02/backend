@@ -1,18 +1,18 @@
-# Use official Node.js LTS image
+# Gunakan image Node versi stabil
 FROM node:18
 
-# Create app directory
+# Set workdir
 WORKDIR /app
 
-# Install app dependencies
+# Salin dan install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Bundle app source
+# Salin seluruh kode aplikasi
 COPY . .
 
-# Expose the app port
+# Expose port Cloud Run
 EXPOSE 8080
 
-# Start the application
+# Jalankan aplikasi
 CMD ["npm", "start"]
