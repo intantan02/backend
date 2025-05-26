@@ -10,19 +10,17 @@ app.use(cors());
 app.use(express.json());
 app.use(UserRoute);
 
-async function main() {
-  try {
-    await db.authenticate();
-    console.log("Database connected...");
-    await db.sync();
 
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  } catch (err) {
-    console.error("Connection error:", err);
-    process.exit(1); // biar container berhenti kalau error
-  }
+try {
+  await db.authenticate();
+  console.log("Database connected...");
+  await db.sync();
+} catch (err) {
+  console.error("Connection error:", err);
 }
 
-main();
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
